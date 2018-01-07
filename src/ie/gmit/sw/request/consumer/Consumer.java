@@ -35,6 +35,7 @@ public class Consumer implements Runnable {
             		
 				    @Override 
 				    public void run() {
+				    	
 				    	/*
 				    	 * Chain of command pattern - executor of the command does not need to know anything at all about what the command is, 
 				    	 * what context information it needs on or what it does. All of that is encapsulated in the command. This pattern also promotes 
@@ -45,7 +46,6 @@ public class Consumer implements Runnable {
 				    	rc.setCommand(r);
 				    	String result = rc.exeute();
 		                outqueue.put(r.getTaskNumber(), result);
-		                System.out.println("Task: " + r.getTaskNumber() + " finished and in the out-queue.");
 				    }
 				});
             }

@@ -22,8 +22,8 @@ public class ServiceHandler {
 		consumer = new Thread(new Consumer(inqueue, outqueue));
 		consumer.start();
 		
-		for (int i = 0; i < 100; i++) {
-			Request r = new SetupRequest("T" + i);
+		for (int i = 0; i < 1; i++) {
+			Request r = new SetupRequest("T" + i, 200, 9);
 			inqueue.offer(r);
 		}
 		
