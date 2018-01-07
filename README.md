@@ -6,7 +6,7 @@ A Java web application, designed with object oriented principles and patterns in
 - Message facade to hold requests and responses.
 - Consumer (singleton?) thread launches message facade requests from a thread pool.
 - Requests (to add & set up) - chain of responsibility/command.
-- Proxy db hander.
+- Proxy db handler.
 
 
 https://stackoverflow.com/questions/19946277/how-to-pass-a-string-value-from-one-servlet-to-another-servlet
