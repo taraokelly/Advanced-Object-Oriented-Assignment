@@ -17,14 +17,15 @@ public class ComparisonRequest extends Request {
 	// private DatabaseProxyHandler db = new DatabaseProxyHandler();
 	// private Jaccard jaccard = new Jaccard();
 	
-	public ComparisonRequest(String taskNumber, InputStream is, String title/*, Integer limit*/, Integer size, Set<Integer> hashes) { // pass in lock
+	public ComparisonRequest(String taskNumber, InputStream is, String title, Integer size, Set<Integer> hashes) { // pass in lock
 		super(taskNumber);
 		documentGenerator = new DocumentGenerator(size,hashes);
 		document = documentGenerator.generate(is, title);
 	}
 
 	public String doRequest() {
-		// String comparisonResult = jaccard.compare(document, db.getAllDocuments());
+		//jaccard.compare(documents, db.getAllDocuments());
+		//jaccard.getResults().forEach(item->System.out.println(item.getTitle() + ": " + item.getSimilarity()));
 		
 		// acquire lock
 		// String dbResult = db.add(document) - return db result?

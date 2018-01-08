@@ -17,7 +17,7 @@ public class SetupRequest extends Request{
 	// private DatabaseProxyHandler db = new DatabaseProxyHandler();
 	private DocumentGenerator documentGenerator;
 	
-	public SetupRequest(String taskNumber/*, Integer limit*/, Integer size, Set<Integer> hashes) {
+	public SetupRequest(String taskNumber, Integer size, Set<Integer> hashes) {
 		super(taskNumber);
 		documentGenerator = new DocumentGenerator(size,hashes);
 	}
@@ -25,6 +25,7 @@ public class SetupRequest extends Request{
 	public String doRequest() {
 		
 		for (File f : getResourceFolderFiles("resources/files")) {
+			System.out.println("In file");
 			String title = f.getName().substring(f.getName().lastIndexOf('/') + 1);
 			File file = new File(loader.getResource("resources/files/" + title).getFile());
 			try {
@@ -32,10 +33,8 @@ public class SetupRequest extends Request{
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-			
 			// add to db
 		}
-		
 		return null;
 	}
 	
@@ -43,6 +42,6 @@ public class SetupRequest extends Request{
 	    URL url = loader.getResource(folder);
 	    String path = url.getPath();
 	    return new File(path).listFiles();
-	  }
+	}
 
 }

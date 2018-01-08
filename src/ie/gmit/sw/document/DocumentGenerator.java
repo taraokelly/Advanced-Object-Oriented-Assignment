@@ -39,8 +39,8 @@ public class DocumentGenerator {
 		}
 		return shingles;
 	}
-	private ArrayList<Integer> generateMinHashedShingles(ArrayList<String> shingles){
-		ArrayList<Integer> hashedShingles = new ArrayList<Integer>();
+	private Set<Integer> generateMinHashedShingles(ArrayList<String> shingles){
+		Set<Integer> hashedShingles = new TreeSet<Integer>();
 		//XOR the integer word values with the hashes
 		for (Integer hash : hashes){
 			 int min = Integer.MAX_VALUE;

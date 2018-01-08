@@ -1,24 +1,24 @@
 package ie.gmit.sw.document;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 public class Document {
 	
-	private ArrayList<Integer> shingles;
+	private Set<Integer> shingles;
 	private String title;
 	private String docId;
 	
-	public Document(ArrayList<Integer> shingles, String title) {
+	public Document(Set<Integer> shingles, String title) {
 		this.shingles = shingles;
 		this.docId = title;
 		this.docId = title;
 	}
 
-	public ArrayList<Integer> getShingles() {
+	public Set<Integer> getShingles() {
 		return shingles;
 	}
 
-	public void setShingles(ArrayList<Integer> shingles) {
+	public void setShingles(Set<Integer> shingles) {
 		this.shingles = shingles;
 	}
 
