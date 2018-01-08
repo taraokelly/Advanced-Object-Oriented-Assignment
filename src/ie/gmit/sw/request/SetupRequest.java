@@ -1,8 +1,10 @@
 package ie.gmit.sw.request;
 
-import java.util.ArrayList;
+import java.io.*;
+import java.net.URL;
+import java.util.*;
 
-import ie.gmit.sw.document.Document;
+import ie.gmit.sw.document.*;
 
 public class SetupRequest extends Request{
 	
@@ -10,27 +12,37 @@ public class SetupRequest extends Request{
 	 * This implementation of Request is optimized to create and populate the database.
 	 */
 	
-	private Integer minHashLimit;
-	private Integer shingleSize;
-	
 	private ArrayList<Document> documents = new ArrayList<Document>();
+	private ClassLoader loader = Thread.currentThread().getContextClassLoader();
 	// private DatabaseProxyHandler db = new DatabaseProxyHandler();
-	// private Jaccard jaccard = new Jaccard();
-	// private ShingleGenerater shingle = MinHashedShingleGenerater();
+	private DocumentGenerator documentGenerator;
 	
-	public SetupRequest(String taskNumber, Integer minHashLimit, Integer shingleSize) {
+	public SetupRequest(String taskNumber/*, Integer limit*/, Integer size, Set<Integer> hashes) {
 		super(taskNumber);
-		this.minHashLimit = minHashLimit;
-		this.shingleSize = shingleSize;
+		documentGenerator = new DocumentGenerator(size,hashes);
 	}
 
 	public String doRequest() {
 		
-		// read in files in resources/files
-		// shingle and hash 
-		// add all to db
+		for (File f : getResourceFolderFiles("resources/files")) {
+			String title = f.getName().substring(f.getName().lastIndexOf('/') + 1);
+			File file = new File(loader.getResource("resources/files/" + title).getFile());
+			try {
+				documents.add(documentGenerator.generate(new FileInputStream(file), title));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			// add to db
+		}
 		
 		return null;
 	}
+	
+	private File[] getResourceFolderFiles (String folder) {
+	    URL url = loader.getResource(folder);
+	    String path = url.getPath();
+	    return new File(path).listFiles();
+	  }
 
 }

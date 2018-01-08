@@ -11,6 +11,8 @@ public class ServiceHandler {
 	private static Map<String, String> outqueue = new LinkedHashMap<String, String>();
 	//Start Consumer thread & pass in queues.
 	private static Thread consumer;
+	private static Set<Integer> hashes = new TreeSet<Integer>();
+	
 	
 	/*public void init(){
 		consumer = new Thread(new Consumer(inqueue, outqueue));
@@ -19,11 +21,17 @@ public class ServiceHandler {
 	
 	public static void main(String[] args) {
 		
-		consumer = new Thread(new Consumer(inqueue, outqueue));
+		Integer MINHASH_LIMIT = 200;
+		Integer SHINGLE_SIZE = 9;
+		Random rand = new Random();
+		for (int i = 0; i < MINHASH_LIMIT; i++){ 
+			hashes.add(rand.nextInt());
+		}
+		consumer = new Thread(new Consumer(inqueue, outqueue, 200));
 		consumer.start();
 		
 		for (int i = 0; i < 1; i++) {
-			Request r = new SetupRequest("T" + i, 200, 9);
+			Request r = new SetupRequest("T" + i, SHINGLE_SIZE, hashes);
 			inqueue.offer(r);
 		}
 		

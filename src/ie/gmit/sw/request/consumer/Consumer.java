@@ -9,15 +9,16 @@ import ie.gmit.sw.request.control.RequestControl;
 public class Consumer implements Runnable {
 	
 	/*
-	 * This runnable class is a worker thread that launches a fixed pool of session beans to
+	 * This runnable class is a worker thread that launches a fixed pool of stateless session threads that
 	 * polls the in-queue, processes the available requests and adds the response to the out-queue.
 	 */
 	
 	private volatile Queue<Requestable> inqueue;
 	private Map<String, String> outqueue;
-	ExecutorService executor = Executors.newFixedThreadPool(50);
+	private ExecutorService executor = Executors.newFixedThreadPool(50);
 	
-	public Consumer(Queue<Requestable> in, Map<String, String> out){
+	
+	public Consumer(Queue<Requestable> in, Map<String, String> out, Integer minHashLimit){
         this.inqueue = in;
 		this.outqueue = out;
     }

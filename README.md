@@ -5,7 +5,7 @@ A Java web application, designed with object oriented principles and patterns in
 
 - Message facade to hold requests and responses.
 - Consumer (singleton?) thread launches message facade requests from a thread pool.
-- Requests (to add & set up) - chain of responsibility/command.
+- Requests (to add & set up) - chain of responsibility or command.
 - Proxy db handler.
 
 https://stackoverflow.com/questions/19946277/how-to-pass-a-string-value-from-one-servlet-to-another-servlet
@@ -22,3 +22,7 @@ http://www.servletsuite.com/servlets/httpproxy.htm
 https://docs.oracle.com/cd/E13222_01/wls/docs61/adminguide/http_proxy.html
 https://stackoverflow.com/questions/2657971/how-to-tell-if-there-is-an-available-thread-in-a-thread-pool-in-java
 https://stackoverflow.com/questions/12771500/best-way-of-creating-and-using-an-anonymous-runnable-class
+http://www.logicbig.com/how-to/java/list-all-files-in-resouce-folder/
+https://stackoverflow.com/questions/11332772/java-string-split-on-all-non-alphanumeric-except-apostrophes
+https://stackoverflow.com/questions/1978933/a-quick-and-easy-way-to-join-array-elements-with-a-separator-the-opposite-of-sp
+https://stackoverflow.com/questions/11001720/get-only-part-of-an-array-in-java
