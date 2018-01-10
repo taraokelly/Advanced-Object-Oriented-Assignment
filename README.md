@@ -1,6 +1,13 @@
 # Advanced Object Oriented Assignment
 A Java web application, designed with object oriented principles and patterns in mind, that enables two or more text documents to be compared for similarity.
 
++ [Initial Plan](#initial-plan)
++ [Additional OO Features](#additional-oo-features)
++ [UML Diagram](#uml-diagram)
++ [Issues](#issues)
++ [How to Run](#how-to-run)
++ [References](#references)
+
 ## Initial Plan
 
 - [x] Message facade to hold requests and responses.
@@ -12,6 +19,10 @@ A Java web application, designed with object oriented principles and patterns in
 
 - Database Singleton - as we don't want threads to have different instances of the db. Then concurrent access would not be controlled.
 - JaccardHashes Singleton - as we don't want the hashes to be able to change, corrupting the integrity of the minhashed shingles being add to the database and used for the jaccard comparison.
+
+## UML Diagram
+
+![alt text](https://github.com/taraokelly/Advanced-Object-Oriented-Assignment/blob/master/UML.PNG "UML Diagram")
 
 ## Issues
 
