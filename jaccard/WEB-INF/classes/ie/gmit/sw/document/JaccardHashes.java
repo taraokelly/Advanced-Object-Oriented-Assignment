@@ -11,8 +11,8 @@ public class JaccardHashes {
 		load(minHashes);
 	}
 	/*
-	 * Another singleton as we don't want to change the hashes as the db class just not change,
-	 * and the hashes relate to the shingles saved in the db.
+	 * Another singleton as we don't want to change the hashes as the db class does not change,
+	 * as the hashes relate to the shingles saved in the db.
 	 * This class loads in the pre-generated random permutations.
 	 */
 
