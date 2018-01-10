@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <display-name>Software Development Year 4 - Advanced Object Oriented Design Principles and Patterns</display-name>
+  <description>
+     2017 Assignment - A JEE Application for Measuring Document Similarity.
+  </description>
+
+  <context-param>
+    <param-name>SHINGLE_SIZE</param-name>
+    <param-value>3</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>MINHASHES</param-name>
+    <param-value>-1163068708 1564549445 -1268315677 1259754440 -1505677402 1433826729 -1504855465 183654574 -2116161757 411252787 -1088976583 638249303 1651011143 -1954183886 -1038861483 1244276586 -240134052 -1262017051 -1839145445 -1533175192 1485084911 420037985 1792582838 1087654196 -1868181237 417075128 1116602972 -1157208107 1156869033 -1112629417 -66415128 1350802809 425624934 -1977230160 -1972782427 -443472196 1273830262 957297688 -1270164885 1469143082 -125225512 -1137818127 -153772816 1707230466 816644299 2121463051 1138503767 -1418097091 -1836545664 -837322937 -1026857203 -526410291 258544144 687623293 1171510997 -1467166167 1252864175 -627949665 146973984 948919817 142552610 1023464990 1587727521 -1500979090 -651012242 -247869044 -743135199 -1719731995 -759744815 1502652290 -1278028145 -1041605621 946202613 -1971907645 -415708069 306457683 1503460195 460204193 1376822787 1376361222 1420205365 -917667425 -881651731 -1033235061 1681715983 -1728545705 -539142281 341082856 -1239292592 682859421 -959514292 -1747167864 -1077033085 -1932887835 -1400815367 221738302 -1904503781 -2074548255 -188691009 -735951479</param-value>
+  </context-param>
+  
+<!--
+
+  For SetupRequest params. No longer needed. Service Handler class.
+
+  <context-param>
+    <param-name>DB_POPULATION_DIR</param-name>
+    <param-value>resources/files/</param-value>
+  </context-param>
+
+  -->
+  
+  <context-param>
+    <param-name>DB_PATH</param-name>
+    <param-value>G00322214/documents.db4o</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>service-request-handler</servlet-name>
+    <servlet-class>ie.gmit.sw.ServiceHandler</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>service-request-handler</servlet-name>
+    <url-pattern>/doProcess</url-pattern>
+  </servlet-mapping>
+</web-app>
