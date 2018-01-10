@@ -1,6 +1,8 @@
 package ie.gmit.sw.request;
 
+import ie.gmit.sw.response.Responsator;
+
 public interface Requestable {
-	public String doRequest();
+	public Responsator doRequest();
 	public String getTaskNumber();
 }

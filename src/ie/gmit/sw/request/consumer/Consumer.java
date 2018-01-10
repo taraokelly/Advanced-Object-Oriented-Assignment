@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 
 import ie.gmit.sw.request.*;
 import ie.gmit.sw.request.control.RequestControl;
+import ie.gmit.sw.response.Responsator;
 
 public class Consumer implements Runnable {
 	
@@ -14,11 +15,11 @@ public class Consumer implements Runnable {
 	 */
 	
 	private volatile Queue<Requestable> inqueue;
-	private Map<String, String> outqueue;
-	private ExecutorService executor = Executors.newFixedThreadPool(50);
+	private Map<String, Responsator> outqueue;
+	private ExecutorService executor = Executors.newFixedThreadPool(25);
 	
 	
-	public Consumer(Queue<Requestable> in, Map<String, String> out, Integer minHashLimit){
+	public Consumer(Queue<Requestable> in, Map<String, Responsator> out){
         this.inqueue = in;
 		this.outqueue = out;
     }
@@ -45,7 +46,7 @@ public class Consumer implements Runnable {
 				    	
 				    	RequestControl rc = new RequestControl();
 				    	rc.setCommand(r);
-				    	String result = rc.exeute();
+				    	Responsator result = (Responsator) rc.exeute();
 		                outqueue.put(r.getTaskNumber(), result);
 				    }
 				});

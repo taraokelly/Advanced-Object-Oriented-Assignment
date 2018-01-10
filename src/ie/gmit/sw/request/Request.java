@@ -1,5 +1,7 @@
 package ie.gmit.sw.request;
 
+import ie.gmit.sw.response.Responsator;
+
 public abstract class Request implements Requestable {
 	
 	// Generalized request variables.
@@ -10,7 +12,7 @@ public abstract class Request implements Requestable {
 	}
 
 	// Leave the implementation to the specialized concrete class.
-	public abstract String doRequest();
+	public abstract Responsator doRequest();
 	
 	// Getters and setters.
 	public String getTaskNumber() {

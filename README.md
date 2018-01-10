@@ -26,3 +26,5 @@ http://www.logicbig.com/how-to/java/list-all-files-in-resouce-folder/
 https://stackoverflow.com/questions/11332772/java-string-split-on-all-non-alphanumeric-except-apostrophes
 https://stackoverflow.com/questions/1978933/a-quick-and-easy-way-to-join-array-elements-with-a-separator-the-opposite-of-sp
 https://stackoverflow.com/questions/11001720/get-only-part-of-an-array-in-java
+https://stackoverflow.com/questions/43634867/computing-jaccard-similarity-in-java
+https://codereview.stackexchange.com/questions/67274/error-handling-in-servlets-and-jsps

@@ -13,14 +13,14 @@ public class DocumentGenerator {
 		this.hashes = hashes;
 	}
 
-	public Document generate(InputStream is,String title){
+	public Document generate(InputStreamReader is,String title){
 		return new Document(generateMinHashedShingles(generateShingles(is)),title);
 	}
 	
-	private ArrayList<String> generateShingles(InputStream is){
+	private ArrayList<String> generateShingles(InputStreamReader is){
 		ArrayList<String> shingles = new ArrayList<String>();
 		try{
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+			BufferedReader bufferedReader = new BufferedReader(is);
 			while(true){
 			    String line = bufferedReader.readLine();
 			    if(line == null) break;

@@ -14,7 +14,7 @@ public class RequestControl implements Control {
 	public void setCommand(Object command){
 		this.command = (Requestable) command;
 	}
-	public String exeute(){
+	public Object exeute(){
 		return command.doRequest();
 	} 
 }
