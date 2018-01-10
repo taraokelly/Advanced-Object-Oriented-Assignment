@@ -28,9 +28,9 @@ A Java web application, designed with object oriented principles and patterns in
 
 ### Deploying to Tomcat:
 
-I had been working with eclipse while developing the non-serlvet classes. When I deployed them to tomcat I had trouble creating the database. I then began using a Dynamic Web Application in Eclipse to get it working, however this Dynamic Web Application required the external jars to be in the application library. Once I had the database working in Eclipse, I transfered the classes back over to the original project. 
+I had been working with eclipse while developing the non-servlet classes. When I deployed them to tomcat I had trouble creating the database. I then began using a Dynamic Web Application in Eclipse to get it working, however this Dynamic Web Application required the external jars to be in the application library. Once I had the database working in Eclipse, I transferred the classes back over to the original project. 
 
-I then ran into another issue with accessing the resources package. This is important because I have two Recquestable objects that are used in the command pattern - one to compare and one to populate the database. I have commented out and left the implementation in to demonstrate how the command pattern works and how a new object of type requestable could be used in the command object.
+I then ran into another issue with accessing the resources package. This is important because I have two Requestable objects that are used in the command pattern - one to compare and one to populate the database. I have commented out and left the implementation in to demonstrate how the command pattern works and how a new object of type Requestable could be used in the command object.
 
 I was also reading the random permutations from a text file in the resources directory. The permutations are now being read from the web.xml.
 
