@@ -15,7 +15,7 @@ A Java web application, designed with object oriented principles and patterns in
 
 ## Issues
 
-### Deploying to tomcat:
+### Deploying to Tomcat:
 
 I had been working with eclipse while developing the non-serlvet classes. When I deployed them to tomcat I had trouble creating the database. I then began using a Dynamic Web Application in Eclipse to get it working, however this Dynamic Web Application required the external jars to be in the application library. Once I had the database working in Eclipse, I transfered the classes back over to the original project. 
 
