@@ -36,7 +36,7 @@ I was also reading the random permutations from a text file in the resources dir
 
 ## How to Run
 
-- Copy the jaccard file or the jaccard.war into your Tomcat/webapps folder. **N.B. only one!**.
+- Copy either the jaccard file or the jaccard.war into your Tomcat/webapps folder. **N.B. - only one!**.
 - Create a directory called **G00322214** in your user Documents directory.
 - Make sure the db4o v8 jars are in your Tomcat/lib folder.
 - Start up tomcat with the startup.bat in your Tomcat/bin folder.
