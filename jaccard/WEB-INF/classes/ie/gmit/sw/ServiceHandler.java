@@ -22,8 +22,9 @@ public class ServiceHandler extends HttpServlet {
 	//An Asynchronous Message Facade
 	private Queue<Requestable> inqueue = new LinkedList<Requestable>();
 	private Map<String, Responsator> outqueue = new LinkedHashMap<String, Responsator>();
+	private Boolean shutdown = false;
 	//Start Consumer thread & pass in queues.
-	private Thread consumer = new Thread(new Consumer(inqueue, outqueue));
+	private Thread consumer = new Thread(new Consumer(inqueue, outqueue,shutdown));
 	private JaccardHashes hashes;
 	private DatabaseHandler db;
 	
@@ -50,6 +51,13 @@ public class ServiceHandler extends HttpServlet {
 			jobNumber++;
 			inqueue.offer(r);
 			*/
+		}
+	}
+	
+	public void destroy() {
+		shutdown = true;
+		while(shutdown!=null){
+			//wait
 		}
 	}
 	

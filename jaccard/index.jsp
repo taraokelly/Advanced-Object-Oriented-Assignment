@@ -13,9 +13,9 @@
 					<legend><h3>Specify Details</h3></legend>
 
 					<b>Document Title :</b><br>
-					<input name="txtTitle" type="text" size="50"/>
+					<input name="txtTitle" required type="text" size="50"/>
 					<p/>
-					<input type="file" name="txtDocument"/>
+					<input type="file" required name="txtDocument"/>
 					<center><input type="submit" value="Compare Document"></center>
 				</fieldset>							
 			</form>	

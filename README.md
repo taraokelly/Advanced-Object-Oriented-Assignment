@@ -34,6 +34,10 @@ I then ran into another issue with accessing the resources package. This is impo
 
 I was also reading the random permutations from a text file in the resources directory. The permutations are now being read from the web.xml.
 
+### Execeuter Shutdown
+
+The addShutdownHook method was not working in tomcat as it had been working in eclipse. I had been using addShutdownHook to add a thread to call executer.shutdown() on program termination. To combat this I created a volatile shared variable with the Runnable Consumer class and it's caller, ServiceHandler. I add a destroy() method in the servlet that will automatically be called when terminating the servlet.
+
 ## How to Run
 
 - Copy either the jaccard file or the jaccard.war into your Tomcat/webapps folder. **N.B. - only one!**.

@@ -7,7 +7,7 @@ import ie.gmit.sw.request.*;
 import ie.gmit.sw.request.control.RequestControl;
 import ie.gmit.sw.response.Responsator;
 
-public class Consumer implements Runnable {
+public class Consumer implements Runnable  {
 	
 	/*
 	 * This runnable class is a worker thread that launches a fixed pool of stateless session threads that
@@ -17,17 +17,25 @@ public class Consumer implements Runnable {
 	private volatile Queue<Requestable> inqueue;
 	private Map<String, Responsator> outqueue;
 	private ExecutorService executor = Executors.newFixedThreadPool(25);
+	private volatile Boolean shutdown;
 	
 	
-	public Consumer(Queue<Requestable> in, Map<String, Responsator> out){
+	public Consumer(Queue<Requestable> in, Map<String, Responsator> out, Boolean shutdown){
         this.inqueue = in;
 		this.outqueue = out;
-    }
+		this.shutdown = shutdown;
+	
+		/*Runtime.getRuntime().addShutdownHook(new Thread() {
+		    public void run() {
+		        executor.shutdown();
+		    }
+		});*/
+	}
 	
 	@Override 
 	public void run() {
-		
-		while(true){
+		//new Thread(() -> {if(shutdown)executor.shutdown();}).start();
+		while(!shutdown){
 
 			Requestable r = inqueue.poll();
 
@@ -52,5 +60,7 @@ public class Consumer implements Runnable {
 				});
             }
         }
+		executor.shutdown();
+		shutdown = null;
 	}
 }
